@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from './Card'
-import Loading from './Loading'
+import Loading from '../../utils/Loading'
 
 function Hero({result,setData}) {
     return (
