@@ -2,7 +2,7 @@ import React from 'react'
 import { AiOutlinePhone } from 'react-icons/ai'
 import { FaMale,FaSearchLocation } from 'react-icons/fa'
 
-function Card({ result,dataFetching }) {
+function Card({ result,setData }) {
     const { name, email, login, location, gender, phone, picture } = result
     const { first, last, title } = name;
     const { country } = location;
@@ -29,7 +29,7 @@ function Card({ result,dataFetching }) {
 
 
             </div>
-            <button className="btn btn-ghost bg-orange-400 text-md hover:bg-orange-500 text-white" onClick={()=>dataFetching()}>Get User</button>
+            <button className="btn btn-ghost bg-orange-400 text-md hover:bg-orange-500 text-white" onClick={()=>setData()}>Get User</button>
         </div>
     )
 }

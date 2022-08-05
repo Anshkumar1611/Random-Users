@@ -18,24 +18,27 @@ function App() {
       }
     };
 
-    axios.request(users).then(function (response) {
-      const user = response.data.results[0];
-      console.log(user)
+    return axios.request(users)
+  }
+  const setData = async () => {
+    try {
+      const response = await dataFetching();
+      const user = response.data.results[0]
       setResult(user)
-    }).catch(function (error) {
-      console.error(error);
-    });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   useEffect(() => {
-    dataFetching();
+    setData();
   }, [])
 
   return (
     <div >
       <Navbar />
       <div className="bg-cyan-200">
-        <Hero dataFetching={dataFetching} result={result}/>
+        <Hero setData={setData} result={result} />
         <Footer />
       </div>
     </div>
