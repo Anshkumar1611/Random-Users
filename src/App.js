@@ -1,10 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import axios from "axios";
 
+
 function App() {
+  const [result, setResult] = useState('')
+
   const dataFetching = () => {
     const users = {
       method: 'GET',
@@ -16,10 +19,9 @@ function App() {
     };
 
     axios.request(users).then(function (response) {
-      const data = response.data;
-      const { info, results } = data;
-      console.log(info);
-      console.log(results);
+      const user = response.data.results[0];
+      console.log(user)
+      setResult(user)
     }).catch(function (error) {
       console.error(error);
     });
@@ -33,7 +35,7 @@ function App() {
     <div >
       <Navbar />
       <div className="bg-cyan-200">
-        <Hero dataFetching={dataFetching} />
+        <Hero dataFetching={dataFetching} result={result}/>
         <Footer />
       </div>
     </div>
