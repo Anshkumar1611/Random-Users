@@ -6,7 +6,7 @@ function Hero({result,dataFetching}) {
         <div className="hero min-h-screen">
             <div className="hero-content text-center">
                 <div className="max-w-md">
-                    <Card result={result} dataFetching={dataFetching}/>
+//                     <Card result={result} dataFetching={dataFetching}/>
                 </div>
             </div>
         </div>
